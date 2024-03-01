@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\ServiceType;
 
 class CreateServicesTable extends Migration
 {
@@ -18,6 +19,7 @@ class CreateServicesTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description')->nullable();
+            $table->string('service_type')->default(ServiceType::DentalService->value);
             $table->string('image')->nullable();
             $table->boolean('status')->default(0);
             

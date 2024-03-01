@@ -18,6 +18,9 @@
 <x-form.preview id="featured-thumb". url="{{$service->image_path}}"/>
 <x-form.checkbox label="Status" id="status" name="status" value="1" class="form-check-input" isEditMode="yes" :isChecked="$service->status ? 'checked' : ''"/>
 
+
+    <x-form.enum-select label="Service Type" col="4" :req="true" :model="$service->service_type" :options="\App\Enums\ServiceType::cases()" name="service_type"></x-form.enum-select>
+
                         <x-form.button class="btn btn-sm btn-dark" type="submit"><i class='bx bx-save bx-xs'></i> Save</x-form.button>
                 </x-form.wrapper>
             </div>
@@ -28,4 +31,7 @@
 @push('custom_js')
     {!! JsValidator::formRequest('App\Http\Requests\Admin\ServiceUpdateRequest') !!}
     @include('_helpers.image_preview',['name' => 'image'])
+
+    @include('_helpers.ck_editor', ['textarea_id' => 'description'])
+    @include('_helpers.slugify', ['title' => 'name'])
 @endpush
