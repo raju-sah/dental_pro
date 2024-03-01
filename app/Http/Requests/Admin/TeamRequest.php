@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TeamsUpdateRequest extends FormRequest
+class TeamRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -15,17 +15,16 @@ class TeamsUpdateRequest extends FormRequest
     {
         return [
             'name'=>'required|string',
-            'slug' => "required|string|unique:teams,slug,{$this->team->id},id|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
-            'department'=>'nullable|string',
-            'image'=>'nullable',
+            'slug' => "required|string|unique:teams,slug|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
+            'department'=>'required|string',
+            'image' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'whatspapp_no'=>'nullable|string',
-            'facebook_url'=>'nullable|string',
-            'instagram_url'=>'nullable|string',
+            'whatspapp_no'=>'required|string',
+            'facebook_url'=>'required|string',
+            'instagram_url'=>'required|string',
             'status'=>'boolean',
             ];
     }
 }
-
 
            

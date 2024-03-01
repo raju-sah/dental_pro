@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TeamsRequest extends FormRequest
+class TeamUpdateRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -15,10 +15,9 @@ class TeamsRequest extends FormRequest
     {
         return [
             'name'=>'required|string',
-            'slug' => "required|string|unique:teams,slug|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
+            'slug'=>'required|string',
             'department'=>'required|string',
-            'image'=>'required',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image'=>'image|nullable',
             'whatspapp_no'=>'required|string',
             'facebook_url'=>'required|string',
             'instagram_url'=>'required|string',
@@ -26,6 +25,3 @@ class TeamsRequest extends FormRequest
             ];
     }
 }
-
-
-           

@@ -22,7 +22,7 @@ class CreateTeamsTable extends Migration
             $table->string('whatspapp_no')->nullable();
             $table->string('facebook_url')->nullable();
             $table->string('instagram_url')->nullable();
-            $table->boolean('status')->default(1);
+            $table->boolean('status')->default(0);
             
             $table->timestamps();
         });
