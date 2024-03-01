@@ -33,11 +33,19 @@ trait UploadFileTrait
         return $this;
     }
 
+
     public function storeMultiImage($file, string $folder_name): static
     {
         $filename = $file->hashName();
         $file->move(public_path('uploaded-images/' . $folder_name), $filename);
-        $this->image = $filename;
+        $this->image_name = $filename;
+
+        $this->images()->create([
+            'image_name' => $filename,
+            'imageable_type' => get_class($this),
+            'imageable_id' => $this->id,
+        ]);
+
         return $this;
     }
 }

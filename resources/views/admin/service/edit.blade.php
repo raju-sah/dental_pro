@@ -31,8 +31,6 @@
 
 @endsection
 @push('custom_js')
-{!! JsValidator::formRequest('App\Http\Requests\Admin\ServiceUpdateRequest') !!}
-@include('_helpers.image_preview',['name' => 'image'])
-@include('_helpers.ck_editor', ['textarea_id' => 'description'])
-@include('_helpers.slugify',['title' => 'name'])
+    {!! JsValidator::formRequest('App\Http\Requests\Admin\ServiceUpdateRequest') !!}
+    @include('_helpers.image_preview',['name' => 'image'])
 @endpush

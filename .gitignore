@@ -18,7 +18,5 @@ yarn-error.log
 /.idea
 /.vscode
 /resources/crud-stub
-<<<<<<< HEAD
-=======
 /resources/crud-stubk
->>>>>>> 325219a44ef054d391e878318097ba01728ac0d2
+/public/uploaded-images
