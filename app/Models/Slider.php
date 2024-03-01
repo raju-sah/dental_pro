@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use App\Traits\UploadFileTrait;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Slider extends Model
 {
@@ -14,10 +15,14 @@ class Slider extends Model
 
     protected $guarded = [];
 
-    public function getImagePathAttribute():string {
-return $this->image ? asset('uploaded-images/slider-images/'.$this->image) : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
+    public function getImagePathAttribute(): string
+    {
+        return $this->image ? asset('uploaded-images/slider-images/' . $this->image) : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
+    }
+
+
+    public function images(): MorphMany
+{
+    return $this->morphMany(Image::class, 'imageable');
 }
-
-
-    
 }

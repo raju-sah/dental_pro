@@ -15,10 +15,9 @@ class ServiceRequest extends FormRequest
     {
         return [
             'name'=>'required|string',
-            'slug' => "required|string|unique:sliders,slug|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
-            'slug'=>'required|string',
-            'description'=>'required|string',
-            'image'=>'image|nullable',
+            'slug' => "required|string|unique:services,slug|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
+            'description'=>'nullable|string',
+            'image' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'status'=>'boolean',
             ];
     }

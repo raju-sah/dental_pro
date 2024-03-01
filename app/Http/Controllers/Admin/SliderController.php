@@ -29,8 +29,10 @@ class SliderController extends Controller
     public function store(SliderRequest $request): RedirectResponse
     {
         $slider = Slider::create($request->safe()->except('image'));
-        if ($request->hasFile('image')) {
-            $slider->storeImage('image', 'slider-images', $request->file('image'));
+        if($request->has('images')){
+            foreach ($request->images as $image) {
+                $slider->storeMultiImage($image, 'slider-gallery-images');
+            }
         }
 
         return redirect()->route('admin.sliders.index')->with('success', 'Slider Created Successfully!');

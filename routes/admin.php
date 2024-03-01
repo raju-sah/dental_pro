@@ -5,9 +5,13 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TeamsController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\ImageController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+
+    Route::delete('delete-gallery-image', [ImageController::class, 'destroy'])->name('delete-gallery-image');
+
     Route::get('status-change-team', [TeamController::class, 'changeStatus'])->name('status-change-team');
     Route::resource('teams', TeamController::class);
 

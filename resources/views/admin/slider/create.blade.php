@@ -14,7 +14,11 @@
                     <x-form.input type="text"  :req="true" col="6" label="Slug" id="slug" name="slug" value="{{ old('slug') }}" />
                 </x-form.row>
                 <x-form.row>
-                    <x-form.input type="file" :req="true" col="6" label="Image" id="image" name="image" alt="image" accept="image/*" onchange="previewThumb(this,'featured-thumb')" />
+                    {{-- <x-form.input type="file" :req="true" col="6" label="Image" id="image" name="image" alt="image" accept="image/*" onchange="previewThumb(this,'featured-thumb')" /> --}}
+
+                    <x-form.input type="file" label="Gallery Images" :req="true" id="images" name="images[]" accept="image/*" multiple onchange="appendImages(this,'images-list')"/>
+                    <div class="images-list row" id="images-list" style="display: none;"></div>
+                    
 
                     <x-form.input type="text" col="6" label="Url" id="url" name="url" value="{{ old('url') }}" />
                 </x-form.row>
@@ -35,7 +39,8 @@
 
 @push('custom_js')
 {!! JsValidator::formRequest('App\Http\Requests\Admin\SliderRequest') !!}
-@include('_helpers.image_preview', ['name' => 'image'])
+{{-- @include('_helpers.image_preview', ['name' => 'image']) --}}
+@include('_helpers.multi_image', ['name' => 'image'])
 @include('_helpers.ck_editor', ['textarea_id' => 'description'])
 @include('_helpers.slugify',['title' => 'name'])
 @endpush
