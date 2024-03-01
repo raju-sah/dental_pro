@@ -21,3 +21,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::get('status-change-slider', [SliderController::class, 'changeStatus'])->name('status-change-slider');
     Route::resource('sliders', SliderController::class);
 });
+
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('status-change-team',[TeamController::class,'changeStatus'])->name('status-change-team');
+    Route::resource('teams',TeamController::class);
+    });
