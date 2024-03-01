@@ -7,10 +7,25 @@
                 errorClass: 'invalid-feedback',
 
                 errorPlacement: function (error, element) {
-                    error.insertAfter(element);
+                    if (element.hasClass('select2-hidden-accessible')) {
+                        error.appendTo(element.closest('.col-md-6'));
+                        error.appendTo(element.closest('.col-md-12'));
+                    }  else {
+                        error.insertAfter(element);
+                    }
+
+                    if (element[0].type === "textarea") {
+                        error.insertAfter(".ck-editor__editable");
+                        return false
+                    }
                 },
                 highlight: function (element) {
                     $(element).removeClass('is-valid').addClass('is-invalid'); // add the Bootstrap error class to the control group
+
+                    if (element.type === "textarea") {
+                        $(".ck-editor__editable").removeClass('is-valid').addClass('is-invalid');
+                        return false
+                    }
                 },
 
                 <?php if (isset($validator['ignore']) && is_string($validator['ignore'])): ?>
@@ -21,10 +36,20 @@
 
                 unhighlight: function (element) {
                     $(element).removeClass('is-invalid').addClass('is-valid');
+
+                    if (element.type === "textarea") {
+                        $(".ck-editor__editable").removeClass('is-invalid').addClass('is-valid');
+                        return false
+                    }
                 },
 
                 success: function (element) {
                     $(element).removeClass('is-invalid').addClass('is-valid'); // remove the Boostrap error class from the control group
+
+                    if (element.type === "textarea") {
+                        $(".ck-editor__editable").removeClass('is-invalid').addClass('is-valid');
+                        return false
+                    }
                 },
 
                 focusInvalid: true,
