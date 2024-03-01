@@ -8,19 +8,17 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\{{modelName}};
 use App\Http\Controllers\Controller;
 use App\Http\Requests\{{folderName}}\{{modelName}}Request;
-use App\Http\Requests\{{folderName}}\{{modelName}}UpdateRequest;
 {{statusChangeTraitImport}}
+{{imageTraitNamespace}}
 
 class {{modelName}}Controller extends Controller
 {
+    {{imageTraitCode}}
     {{statusChangeTrait}}
-    public function index(Request $request): View
+    public function index() : View
     {
         return view('{{folderNameSnakeCase}}.{{modelNameSingularLowerCase}}.index', [
-            '{{modelNamePluralLowerCase}}' => {{modelName}}::when($request->has('archive'), function($query){
-                $query->onlyTrashed();
-             })
-             ->get()
+            '{{modelNamePluralLowerCase}}' => {{modelName}}::query()->select({{fieldsForSelect}})->latest()->get()
         ]);
     }
 
@@ -46,7 +44,7 @@ class {{modelName}}Controller extends Controller
         return view('{{folderNameSnakeCase}}.{{modelNameSingularLowerCase}}.edit', compact('{{modelNameSingularLowerCase}}'));
     }
 
-    public function update({{modelName}}UpdateRequest $request, {{modelName}} ${{modelNameSingularLowerCase}}) : RedirectResponse
+    public function update({{modelName}}Request $request, {{modelName}} ${{modelNameSingularLowerCase}}) : RedirectResponse
     {
         {{updateMethodCode}}
 
@@ -55,35 +53,12 @@ class {{modelName}}Controller extends Controller
 
     public function destroy({{modelName}} ${{modelNameSingularLowerCase}}) : RedirectResponse
     {
+        {{deleteMethodCode}}
+
         ${{modelNameSingularLowerCase}}->delete();
 
         return redirect()->route('{{folderNameSnakeCase}}.{{modelNamePluralKebabCase}}.index')->with('error', '{{modelName}} Deleted Successfully!');
     }
 
-    public function restore($id) : RedirectResponse
-    {
-        ${{modelNameSingularLowerCase}} = {{modelName}}::onlyTrashed()->findOrFail($id);
-        ${{modelNameSingularLowerCase}}->restore();
-
-        return redirect()->route('{{folderNameSnakeCase}}.{{modelNamePluralKebabCase}}.index')->with('success', '{{modelName}} Restored Successfully!');
-    }
-
-    public function forceDelete($id) : RedirectResponse
-    {
-        ${{modelNameSingularLowerCase}} = {{modelName}}::onlyTrashed()->findOrFail($id);
-        {{deleteMethodCode}}
-        ${{modelNameSingularLowerCase}}->forceDelete();
-
-        return redirect()->route('{{folderNameSnakeCase}}.{{modelNamePluralKebabCase}}.index')->with('error', '{{modelName}} Eliminated Successfully!');
-    }
-
-    /*
-    public function trashed(): View
-    {
-        ${{modelNameSingularLowerCase}} = {{modelName}}::onlyTrashed()->get();
-
-        return view('{{folderNameSnakeCase}}.{{modelNameSingularLowerCase}}.trash', compact('{{modelNameSingularLowerCase}}'));
-    }
-    */
     {{statusChangeMethodCode}}
 }

@@ -18,6 +18,17 @@
         <x-sidebar-item route="{{route('admin.teams.index')}}" name="Teams" uri="admin/destinations">
             <i class="menu-icon tf-icons bx bxs-group"></i>
         </x-sidebar-item>
+        <x-sidebar-item route="{{route('admin.testimonials.index')}}" name="Testimonials" uri="admin/destinations">
+            <i class="menu-icon tf-icons bx bxs-group"></i>
+        </x-sidebar-item>
+        <x-sidebar-item route="{{route('admin.services.index')}}" name="Services" uri="admin/destinations">
+            <i class="menu-icon tf-icons bx bxs-group"></i>
+        </x-sidebar-item>
+
+        <x-sidebar-item route="{{route('admin.sliders.index')}}" name="Slider" uri="admin/destinations">
+            <i class="menu-icon tf-icons bx bxs-group"></i>
+        </x-sidebar-item>
+
 
     </ul>
 </aside>
