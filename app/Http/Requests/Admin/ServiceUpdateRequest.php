@@ -15,9 +15,9 @@ class ServiceUpdateRequest extends FormRequest
     {
         return [
             'name'=>'required|string',
-            'slug'=>'required|string',
+            'slug' => "required|string|unique:services,slug,{$this->service->id},id|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
             'description'=>'required|string',
-            'image'=>'image|nullable',
+            'image' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'status'=>'boolean',
             ];
     }
