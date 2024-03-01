@@ -17,7 +17,7 @@
         <div class="table-responsive no-wrap">
           <table class="table" id="datatable">
 
-           <x-table.header :headers="['name','slug','description','image','status', 'Actions']" />
+           <x-table.header :headers="['name','slug','image','status', 'Actions']" />
 
              <tbody id="tablecontents">
                 @forelse ($testimonials as $testimonial)
@@ -28,7 +28,7 @@
                         
                         <x-table.td>{{$testimonial->slug}}</x-table.td>
                         
-                        <x-table.td>{{$testimonial->description}}</x-table.td>
+                        {{-- <x-table.td>{{$testimonial->description}}</x-table.td> --}}
                         
                         <x-table.table_image name="{{$testimonial->image }}" url="{{$testimonial->image_path }}"/><x-table.switch :model="$testimonial" />
 

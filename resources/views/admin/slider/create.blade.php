@@ -31,4 +31,5 @@
 @push('custom_js')
     {!! JsValidator::formRequest('App\Http\Requests\Admin\SliderRequest') !!}
     @include('_helpers.image_preview', ['name' => 'image'])
+    @include('_helpers.ck_editor', ['textarea_id' => 'description'])
 @endpush
