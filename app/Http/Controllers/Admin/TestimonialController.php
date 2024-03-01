@@ -17,7 +17,7 @@ class TestimonialController extends Controller
     public function index() : View
     {
         return view('admin.testimonial.index', [
-            'testimonials' => Testimonial::query()->select(['id', 'name','slug','description','image','status'])->latest()->get()
+            'testimonials' => Testimonial::query()->select(['id', 'name','slug','image','status'])->latest()->get()
         ]);
     }
 
