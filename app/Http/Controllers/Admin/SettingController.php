@@ -20,14 +20,14 @@ class SettingController extends Controller
         return view('admin.setting.socialsetting');
     }
 
-    public function store(Request $request)
+    public function store(SettingRequest $request)
     {
         $setting = Setting::create($request->safe()->except('image'));
         if ($request->hasFile('image')) {
             $setting->storeImage('image', 'setting-images', $request->file('image'));
         }
 
-        return redirect()->route('admin.setting.socialsetting')->with('success', 'Setting Created Successfully!');
+        return redirect()->back()->with('success', 'Setting Created Successfully!');
     }
 
 

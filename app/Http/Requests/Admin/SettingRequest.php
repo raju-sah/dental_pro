@@ -15,11 +15,11 @@ class SettingRequest extends FormRequest
     {
         return [
             'name'=>'required|string',
-            'url'=>'required|string',
+           
             'description'=>'required|string',
-            'logo'=>'required|string',
+            'logo'=>'image|nullable',
             'image'=>'image|nullable',
-            'about_img'=>'required|string',
+            'about_img'=>'image|nullable',
             ];
     }
 }

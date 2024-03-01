@@ -11,20 +11,21 @@
                 {{-- @if (isset($setting->id))/ --}}
                     {{-- <x-form.wrapper action="{{ route('admin..update', $setting->id) }}" method="POST"
                         enctype="multipart/form-data"> --}}
-                        <x-form.wrapper action="{{$setting ? route('admin.settings.update', $setting->id) : route('admin.settings.store')}}" method="POST" enctype="multipart/form-data">
-                @method('PATCH')
+                        <x-form.wrapper action="{{route('admin.settings.index')}}" method="POST" enctype="multipart/form-data">
+                {{-- @method('PATCH') --}}
                 <xform.row>
                     <x-form.input type="file" label="Image" id="image" name="image" alt="image"
                         accept="image/*" onchange="previewThumb(this,'featured-thumb')" />
                 </xform.row>
-                <x-form.preview id="featured-thumb" . url="{{ $setting->image_path }}" />
+                <x-form.preview id="featured-thumb" />
                 <x-form.row>
                     <x-form.input type="text" col="6" :req="true" label="Name" id="name"
-                        name="name" value="{{ $service->name }}" />
-                    <x-form.input type="text" col="6" :req="true" label="Slug" id="slug"
-                        name="slug" value="{{ $service->slug }}" />
+                        name="name" value="{{ $service->name ?? ''}}" />
+
+
+                  
                 </x-form.row>
-                <x-form.textarea label="Description" id="description" name="description" value="{{ $service->description }}"
+                <x-form.textarea label="Description" id="description" name="description" value="{{ $service->description ?? '' }}"
                     rows="5" cols="5" />
 
 
@@ -36,7 +37,7 @@
     </div>
 @endsection
 @push('custom_js')
-    {!! JsValidator::formRequest('App\Http\Requests\Admin\ServiceUpdateRequest') !!}
+    {{-- {!! JsValidator::formRequest('App\Http\Requests\Admin\ServiceUpdateRequest') !!} --}}
     @include('_helpers.image_preview', ['name' => 'image'])
 
     @include('_helpers.ck_editor', ['textarea_id' => 'description'])
