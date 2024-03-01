@@ -1,0 +1,71 @@
+@extends('layouts.master')
+
+@section('content')
+
+<div class="container-xxl">
+
+     <x-breadcrumb model="Teams"></x-breadcrumb>
+
+    <div class="card">
+
+        <div class="card-body">
+
+          <div class="d-flex justify-content-end">
+            <a href="{{route('admin.teams.create')}}" class="btn btn-sm btn-dark mb-2"><i class='bx bx-xs bx-plus'> </i>Create</a>
+          </div>
+
+        <div class="table-responsive no-wrap">
+          <table class="table" id="datatable">
+
+           <x-table.header :headers="['name','slug','department','image','whatspapp_no','facebook_url','instagram_url','status', 'Actions']" />
+
+             <tbody id="tablecontents">
+                @forelse ($teams as $teams)
+                    <tr>
+                      <td>{{$loop->iteration}}</td>
+
+                      <x-table.td>{{$teams->name}}</x-table.td>
+                        
+                        <x-table.td>{{$teams->slug}}</x-table.td>
+                        
+                        <x-table.td>{{$teams->department}}</x-table.td>
+                        
+                        <x-table.table_image name="{{$teams->image }}" url="{{$teams->image_path }}"/><x-table.td>{{$teams->whatspapp_no}}</x-table.td>
+                        
+                        <x-table.td>{{$teams->facebook_url}}</x-table.td>
+                        
+                        <x-table.td>{{$teams->instagram_url}}</x-table.td>
+                        
+                        <x-table.switch :model="$teams" />
+
+                      <td style="width:150px">
+                            <div class="actions d-flex">
+                                <x-table.view_btn route-view="{{route('admin.teams.show', ':id')}}" id="{{$teams->id}}" model="Teams" name="teams"/>
+
+                                <x-table.edit_btn route-edit="{{route('admin.teams.edit', $teams->id) }}"/>
+
+                                <x-table.delete_btn route-destroy="{{route('admin.teams.destroy', $teams->id ) }}"/>
+                            </div>
+                      </td>
+                    </tr>
+
+                    <x-table.show_modal id="{{$teams->id}}" model="Teams" />
+
+                @empty
+                @endforelse
+
+            </tbody>
+          </table>
+          </div>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+@push('custom_js')
+    @include('_helpers.modal_script',['name' => 'teams', 'route' => route('admin.teams.show', ':id')])
+    @include('_helpers.datatable')
+    @include('_helpers.status_change', ['url' => url('admin/status-change-teams')])
+    @include('_helpers.swal_delete')
+@endpush
