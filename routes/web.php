@@ -10,4 +10,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::resource('settings',\App\Http\Controllers\Admin\SettingController::class);
+});
