@@ -18,15 +18,21 @@
         <x-sidebar-item route="{{route('admin.teams.index')}}" name="Teams" uri="admin/destinations">
             <i class="menu-icon tf-icons bx bxs-group"></i>
         </x-sidebar-item>
-        <x-sidebar-item route="{{route('admin.testimonials.index')}}" name="Testimonials" uri="admin/destinations">
-            <i class="menu-icon tf-icons bx bxs-group"></i>
+        <x-sidebar-item route="{{route('admin.testimonials.index')}}" name="Testimonials" uri="admin/testimonials">
+            <i class="menu-icon tf-icons bx bxs-star"></i>
         </x-sidebar-item>
-        <x-sidebar-item route="{{route('admin.services.index')}}" name="Services" uri="admin/destinations">
-            <i class="menu-icon tf-icons bx bxs-group"></i>
+        <x-sidebar-item route="{{route('admin.services.index')}}" name="Services" uri="admin/services">
+            <i class="menu-icon tf-icons bx bxs-donate-heart"></i>
         </x-sidebar-item>
 
-        <x-sidebar-item route="{{route('admin.sliders.index')}}" name="Slider" uri="admin/destinations">
-            <i class="menu-icon tf-icons bx bxs-group"></i>
+        <x-sidebar-item route="{{route('admin.sliders.index')}}" name="Slider" uri="admin/sliders">
+            <i class="menu-icon tf-icons bx bxs-image"></i>
+        </x-sidebar-item>
+        <x-sidebar-item route="{{route('admin.feedback.index')}}" name="Feedbacks" uri="admin/feedbacks">
+            <i class="menu-icon tf-icons bx bxs-like"></i>
+        </x-sidebar-item>
+        <x-sidebar-item route="{{route('admin.news-letters.index')}}" name="News Letters" uri="admin/news-letters">
+            <i class="menu-icon tf-icons bx bxs-envelope"></i>
         </x-sidebar-item>
 
 

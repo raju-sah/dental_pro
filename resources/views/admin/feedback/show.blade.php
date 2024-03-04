@@ -3,30 +3,35 @@
     <tbody>
       <tr>
         <td class="text-uppercase text-14">Image</td>
-        <td ><img src="{{$service->image_path}}" height="100px" width="100px" alt="image"></td>
+        <td ><img src="{{$feedback->image_path}}" height="100px" width="100px" alt="image"></td>
         
       </tr>
       <tr>
-      <td class="text-uppercase text-14">Name</td>
-        <td>{{$service->name}}</td>
+      <td class="text-uppercase text-14"> Full Name</td>
+        <td>{{$feedback->name}}</td>
         
       </tr>
       <tr>
-      <td class="text-uppercase text-14">slug</td>
-        <td>{{$service->slug}}</td>
+      <td class="text-uppercase text-14">location</td>
+        <td>{{$feedback->location}}</td>
        
       </tr>
       <tr>
-      <td class="text-uppercase text-14">Description</td>
-        <td>{!!$service->description !!}</td>
+      <td class="text-uppercase text-14">service</td>
+        <td>{{$feedback->service}}</td>
+       
+      </tr>
+      <tr>
+      <td class="text-uppercase text-14">feedback</td>
+        <td>{!!$feedback->feedback !!}</td>
        
       </tr>
      
       <tr>
       <td class="text-uppercase text-14">status</td>
-      @if ($service->status == 1)
+      @if ($feedback->status == 1)
       <td>Active</td>
-      @elseif ($service->status == 0)
+      @elseif ($feedback->status == 0)
       <td>Inactive</td>
       @endif
       
@@ -35,12 +40,12 @@
       
       <tr>
       <td class="text-uppercase text-14">created_at</td>
-        <td>{{$service->created_at}}</td>
+        <td>{{$feedback->created_at}}</td>
        
       </tr>
       <tr>
       <td class="text-uppercase text-14">updated_at</td>
-        <td>{{$service->updated_at}}</td>
+        <td>{{$feedback->updated_at}}</td>
        
       </tr>
     </tbody>

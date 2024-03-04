@@ -28,7 +28,7 @@
                         
                         <x-table.td>{{$service->slug}}</x-table.td>
                         
-                        <x-table.td>{{$service->description}}</x-table.td>
+                        <x-table.td>{!!$service->description!!}</x-table.td>
                         
                         <x-table.table_image name="{{$service->image }}" url="{{$service->image_path }}"/><x-table.switch :model="$service" />
 

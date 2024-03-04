@@ -1,11 +1,73 @@
-<div class="row align-items-center  ">
-    <div class="card-content mt-2"><b class="d-block text-uppercase text-14">name</b><span>{{$team->name}}</span></div>
-<div class="card-content mt-2"><b class="d-block text-uppercase text-14">slug</b><span>{{$team->slug}}</span></div>
-<div class="card-content mt-2"><b class="d-block text-uppercase text-14">department</b><span>{{$team->department}}</span></div>
-<div class="card-content mt-2"><b class="d-block text-uppercase text-14">image</b><x-table.table_image name="{{$team->image }}" url="{{$team->image_path }}"/><div class="card-content mt-2"><b class="d-block text-uppercase text-14">whatspapp_no</b><span>{{$team->whatspapp_no}}</span></div>
-<div class="card-content mt-2"><b class="d-block text-uppercase text-14">facebook_url</b><span>{{$team->facebook_url}}</span></div>
-<div class="card-content mt-2"><b class="d-block text-uppercase text-14">instagram_url</b><span>{{$team->instagram_url}}</span></div>
-<div class="card-content mt-2"><b class="d-block text-uppercase text-14">status</b><span>{{$team->status}}</span></div>
+<table class="table table-hover table-striped">
+    
+    <tbody>
+      <tr>
+        <td class="text-uppercase text-14">Image</td>
+        <td ><img src="{{$team->image_path}}" height="100px" width="100px" alt="image"></td>
+        
+      </tr>
+      <tr>
+      <td class="text-uppercase text-14">Name</td>
+        <td>{{$team->name}}</td>
+        
+      </tr>
+      <tr>
+      <td class="text-uppercase text-14">slug</td>
+        <td>{{$team->slug}}</td>
+       
+      </tr>
+      <tr>
+      <td class="text-uppercase text-14">Department</td>
+        <td>{{$team->department}}</td>
+       
+      </tr>
+      <tr>
+      <td class="text-uppercase text-14">whatspapp_no</td>
+        <td>{{$team->whatspapp_no}}</td>
+       
+      </tr>
+      <tr>
+      <td class="text-uppercase text-14">facebook_url</td>
+        <td>{{$team->facebook_url}}</td>
+       
+      </tr>
+      <tr>
+      <td class="text-uppercase text-14">instagram_url</td>
+        <td>{{$team->instagram_url}}</td>
+       
+      </tr>
+      <tr>
+      <td class="text-uppercase text-14">status</td>
+      @if ($team->status == 1)
+      <td>Active</td>
+      @elseif ($team->status == 0)
+      <td>Inactive</td>
+      @endif
+       
+      </tr>
+      
+      <tr>
+      <td class="text-uppercase text-14">created_at</td>
+        <td>{{$team->created_at}}</td>
+       
+      </tr>
+      <tr>
+      <td class="text-uppercase  text-14">updated_at</td>
+        <td>{{$team->updated_at}}</td>
+       
+      </tr>
+    </tbody>
 
-</div>
-</div>
+
+    <style>
+
+.text-uppercase{
+        font-weight: 800;
+      
+       }
+
+        tr:nth-child(even) {
+  background-color: #dee2e6;
+}
+    </style>
+  </table>
