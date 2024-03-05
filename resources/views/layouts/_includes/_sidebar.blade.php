@@ -1,3 +1,16 @@
+<?php
+
+use App\Models\GeneralSetting;
+use App\Models\SeoSetting;
+use App\Models\SocialSetting;
+
+$general_setting = GeneralSetting::first();
+$social_setting = SocialSetting::first();
+$seo_setting = SeoSetting::first();
+
+?>
+
+
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="{{url('home')}}" class="app-brand-link">
@@ -31,6 +44,12 @@
         <x-sidebar-item route="{{route('admin.feedback.index')}}" name="Feedbacks" uri="admin/feedbacks">
             <i class="menu-icon tf-icons bx bxs-like"></i>
         </x-sidebar-item>
+        <x-sidebar-item route="{{route('admin.appointments.index')}}" name="Appointments" uri="admin/appointments">
+            <i class="menu-icon tf-icons bx bxs-book-alt"></i>
+        </x-sidebar-item>
+        <x-sidebar-item route="{{route('admin.programs.index')}}" name="Programs" uri="admin/programs">
+            <i class="menu-icon tf-icons bx bxs-first-aid"></i>
+        </x-sidebar-item>
         <x-sidebar-item route="{{route('admin.news-letters.index')}}" name="News Letters" uri="admin/news-letters">
             <i class="menu-icon tf-icons bx bxs-envelope"></i>
         </x-sidebar-item>
@@ -39,22 +58,22 @@
       
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <i class="menu-icon tf-icons bx bx-dock-top"></i>
+              <i class="menu-icon tf-icons bx bxs-cog"></i>
               <div data-i18n="Account Settings">Settings</div>
             </a>
             <ul class="menu-sub">
               <li class="menu-item">
-                <a href="{{route('admin.settings.create')}}" class="menu-link">
+                <a href="{{route('admin.general-settings.edit', $general_setting->id) }}" class="menu-link">
                   <div data-i18n="Account">General Setting</div>
                 </a>
               </li>
               <li class="menu-item">
-                <a href="" class="menu-link">
+                <a href="{{route('admin.social-settings.edit', $social_setting->id)}}" class="menu-link">
                   <div data-i18n="Notifications">Social setting</div>
                 </a>
               </li>
               <li class="menu-item">
-                <a href="" class="menu-link">
+                <a href="{{route('admin.seo-settings.edit', $seo_setting->id)}}" class="menu-link">
                   <div data-i18n="Connections">Other Setting</div>
                 </a>
               </li>

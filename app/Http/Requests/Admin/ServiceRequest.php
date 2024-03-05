@@ -20,6 +20,8 @@ class ServiceRequest extends FormRequest
             'service_type'=>'required|string',
             'image' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'status'=>'boolean',
+            'title.*' => 'nullable|string',
+            'price.*' => 'nullable|numeric',
             ];
     }
 }

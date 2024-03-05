@@ -18,6 +18,7 @@ class Service extends Model
 return $this->image ? asset('uploaded-images/service-images/'.$this->image) : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
 }
 
+public function ServicePrices(){
+    return $this->hasMany(ServicePrice::class);}
 
-    
 }

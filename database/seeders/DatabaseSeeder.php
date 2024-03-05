@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\GeneralSetting;
+use App\Models\SocialSetting;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +24,18 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             NewsLetterSeeder::class,
+        ]);
+        $this->call([
+            GeneralSettingSeeder::class,
+        ]);
+        $this->call([
+            SocialSettingSeeder::class,
+        ]);
+        $this->call([
+            SeoSettingSeeder::class,
+        ]);
+        $this->call([
+            AppointmentSeeder::class,
         ]);
     }
 }

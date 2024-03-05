@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSettingsTable extends Migration
+class CreateProgramsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,13 @@ class CreateSettingsTable extends Migration
      */
     public function up(): void
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->text('description')->nullable();
-            $table->string('logo')->nullable();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('description')->nullable();
             $table->string('image')->nullable();
-            $table->string('email')->nullable();
-            $table->integer('phone')->nullable();
-
-
-            $table->string('about_img')->nullable();
+            $table->boolean('status')->default(0);
             
             $table->timestamps();
         });
@@ -36,6 +32,6 @@ class CreateSettingsTable extends Migration
      */
     public function down() : void
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('programs');
     }
 }

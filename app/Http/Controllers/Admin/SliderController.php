@@ -69,6 +69,8 @@ class SliderController extends Controller
         return redirect()->route('admin.sliders.index')->with('error', 'Slider Deleted Successfully!');
     }
 
+    
+
     public function changeStatus(Request $request): void
     {
         $this->changeItemStatus('Slider', $request->id, $request->status);

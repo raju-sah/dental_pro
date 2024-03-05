@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use App\Traits\UploadFileTrait;
 
-class Setting extends Model
+class GeneralSetting extends Model
 {
     use HasFactory;
     use UploadFileTrait;
@@ -15,7 +15,7 @@ class Setting extends Model
     protected $guarded = [];
 
     public function getImagePathAttribute():string {
-return $this->image ? asset('uploaded-images/setting-images/'.$this->image) : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
+return $this->image ? asset('uploaded-images/general_setting-images/'.$this->image) : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
 }
 
 
