@@ -13,12 +13,13 @@
       </tr>
       <tr>
       <td class="text-uppercase text-14">slug</td>
-        <td>{{$service->slug}}</td>
+        <td>{{$service->slug }}</td>
        
       </tr>
       <tr>
       <td class="text-uppercase text-14">Description</td>
-        <td>{!!$service->description !!}</td>
+      <td>{!! $service->description ?? 'N/A' !!}</td>
+
        
       </tr>
      
@@ -32,7 +33,6 @@
       
        
       </tr>
-      
       <tr>
       <td class="text-uppercase text-14">created_at</td>
         <td>{{$service->created_at}}</td>
@@ -43,6 +43,17 @@
         <td>{{$service->updated_at}}</td>
        
       </tr>
+     <tr>
+     <td colspan="2" class="text-uppercase text-20 text-center text-white bg-primary">Services and its prices</td>
+       
+     </tr>
+      @foreach ($service->ServicePrices as $prices )
+      <tr>
+   <td >{{$prices->title ??'N/A'}}</td>
+        <td>{{$prices->price ??'N/A'}}</td>
+      </tr>
+      @endforeach
+      
     </tbody>
 
 

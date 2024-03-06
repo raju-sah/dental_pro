@@ -20,6 +20,7 @@
     priceInput.classList.add('form-control');
     priceInput.classList.add('mt-2');
     priceInput.classList.add('ms-2');
+    priceInput.classList.add('me-2');
     // Append the new input elements to the container
     newInputContainer.appendChild(nameInput);
     newInputContainer.appendChild(priceInput);
@@ -31,6 +32,7 @@
       removeInputFields(this);
     };
     deleteButton.classList.add('btn', 'btn-danger');
+    deleteButton.classList.add('mt-2');
     newInputContainer.appendChild(deleteButton);
 
     // Append the new div container to the main container

@@ -12,7 +12,7 @@
 
 
 
-  <div class="  container active card" id="home">
+  <div class="  container active card" >
     <div class="card-body">
 
       <x-form.wrapper action="{{ route('admin.services.store') }}" method="POST" enctype="multipart/form-data">
@@ -32,16 +32,15 @@
 
         <x-form.checkbox label="Status" id="status" name="status" value="1" class="form-check-input" isEditMode="yes" :isChecked="'checked'" />
 
-        <!-- <x-form.button class="btn btn-sm btn-dark" type="submit"><i class='bx bx-save bx-xs'></i>
-                Save</x-form.button> -->
+     
         <div id="inputContainer">
 
 
           <div class="input-container">
             <input type="text" name="title[]" class="form-control" placeholder="Enter name" >
-            <input type="text" name="price[]" class="form-control" placeholder="Enter price" >
+            <input type="text" name="price[]" class="form-control ms-2 me-2" placeholder="Enter price" >
             <span class="  rajuspan btn btn-success" onclick="addInputFields()"><i class="bx bx-plus">Add</i></span>
-            <button hidden onclick="removeInputFields(this)"><i class="bx bx-minus">Delete</i></button>
+            <span class="  rajuspan btn btn-danger mt-2" hidden onclick="removeInputFields(this)"><i class="bx bx-minus">Delete</i></span>
 
 
           </div>
@@ -64,7 +63,7 @@
 <style>
   .input-container {
     display: flex;
-    justify-content: center;
+ 
    
   }
 
