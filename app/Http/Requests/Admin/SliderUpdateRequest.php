@@ -15,10 +15,10 @@ class SliderUpdateRequest extends FormRequest
     {
         return [
             'name'=>'required|string',
-            'slug' => "required|string|unique:sliders,slug,{$this->slider->id},id|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
+            'slug'=>'required|string',
+            'description'=>'required|string',
             'url'=>'required|string',
-            'description'=>'nullable|string',
-            'image' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
+            'image'=>'image|nullable',
             'status'=>'boolean',
             ];
     }

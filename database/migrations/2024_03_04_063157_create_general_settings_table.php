@@ -26,8 +26,8 @@ class CreateGeneralSettingsTable extends Migration
             $table->string('office_closed_week')->nullable();
             $table->string('mobile')->nullable();
             $table->string('office_time')->nullable();
+            $table->text('map_url')->nullable();
             $table->boolean('status')->default(0);
-            
             $table->timestamps();
         });
     }

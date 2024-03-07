@@ -20,6 +20,7 @@ class GeneralSettingUpdateRequest extends FormRequest
             'description' => 'nullable|string',
             'phone' => 'nullable|string',
             'email' => 'nullable|email',
+            'map_url' => 'nullable|string',
             'address' => 'nullable|string',
             'mobile'=> 'nullable|string',
             'status'=>'boolean',

@@ -22,6 +22,7 @@ class GeneralSettingRequest extends FormRequest
             'phone' => 'nullable|string',
             'email' => 'nullable|email',
             'address' => 'nullable|string',
+            'map_url' => 'nullable|string',
             'mobile'=> 'nullable|string',
             ];
     }

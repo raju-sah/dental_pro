@@ -22,7 +22,6 @@ class CreateServicesTable extends Migration
             $table->string('service_type')->default(ServiceType::DentalService->value);
             $table->string('image')->nullable();
             $table->boolean('status')->default(0);
-            
             $table->timestamps();
         });
     }

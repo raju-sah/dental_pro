@@ -19,11 +19,11 @@ class CreateAppointmentsTable extends Migration
             $table->string('phone');
             $table->string('age');
             $table->string('address');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('message')->nullable();
             $table->string('date');
             $table->boolean('status')->default(0);
-            $table->foreignId('service_id')->nullable()->constrained('services')->onDelete('set null');
+            // $table->foreignId('service_id')->nullable()->constrained('services')->onDelete('cascade');
             
             $table->timestamps();
         });

@@ -28,10 +28,15 @@
       <td>{{$program->slug ?? 'N/A'}}</td>
 
     </tr>
+    <tr>
+      <td class="text-uppercase text-14">Page Type</td>
+      <td>{{$program->page_type == 0 ? 'HomePage' : 'SinglePage'}}</td>
+
+    </tr>
 
     <tr>
       <td class="text-uppercase text-14">description</td>
-      <td>{!!$program->description !!}</td>
+      <td>{!!$program->description ?? 'N/A' !!}</td>
 
     </tr>
 

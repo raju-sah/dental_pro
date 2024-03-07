@@ -17,7 +17,7 @@ class AppointmentController extends Controller
     public function index() : View
     {
         return view('admin.appointment.index', [
-            'appointments' => Appointment::query()->select(['id', 'name','phone','age','address','email','message','date','status'])->latest()->get()
+            'appointments' => Appointment::query()->select(['id', 'name','phone','age','address','email','date','status'])->latest()->get()
         ]);
     }
 

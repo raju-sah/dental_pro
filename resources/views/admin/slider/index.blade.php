@@ -17,7 +17,7 @@
         <div class="table-responsive no-wrap">
           <table class="table" id="datatable">
 
-           <x-table.header :headers="['name','url','image','status', 'Actions']" />
+           <x-table.header :headers="['name','slug','description','url','image','status', 'Actions']" />
 
              <tbody id="tablecontents">
                 @forelse ($sliders as $slider)
@@ -26,8 +26,11 @@
 
                       <x-table.td>{{$slider->name}}</x-table.td>
                         
-                        <x-table.td>{{$slider->url}}</x-table.td>
+                        <x-table.td>{{$slider->slug}}</x-table.td>
                         
+                        <x-table.td>{{$slider->description}}</x-table.td>
+                        
+                        <x-table.td>{{$slider->url}}</x-table.td>
                         
                         <x-table.table_image name="{{$slider->image }}" url="{{$slider->image_path }}"/><x-table.switch :model="$slider" />
 

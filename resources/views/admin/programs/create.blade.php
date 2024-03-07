@@ -19,7 +19,7 @@
             <x-form.input type="text" col="6" :req="true" label="Title" id="title" name="title" value="{{ old('title') }}" />
                 <x-form.input type="text" col="6" :req="true" label="Slug" id="slug" name="slug" value="{{ old('slug') }}" />
                 </x-form.row>
-
+                <x-form.select label="Page Type" :options="\App\Enums\PageType::cases()" :req="true" col="12" name="page_type"></x-form.select>
                 <x-form.input type="text" label="Description" id="description" name="description" value="{{ old('description') }}" />
                
                 <x-form.checkbox label="Status" id="status" name="status" value="1" class="form-check-input" isEditMode="yes" :isChecked="true" />

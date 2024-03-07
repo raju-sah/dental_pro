@@ -53,6 +53,9 @@ $seo_setting = SeoSetting::first();
         <x-sidebar-item route="{{route('admin.news-letters.index')}}" name="News Letters" uri="admin/news-letters">
             <i class="menu-icon tf-icons bx bxs-envelope"></i>
         </x-sidebar-item>
+        <x-sidebar-item route="{{route('admin.contacts.index')}}" name="Contacts" uri="admin/contacts">
+            <i class="menu-icon tf-icons bx bxs-phone"></i>
+        </x-sidebar-item>
       
       
       

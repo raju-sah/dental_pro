@@ -14,35 +14,31 @@ use App\Traits\StatusTrait;
 class FeedbackController extends Controller
 {
     use StatusTrait;
-    public function index() : View
+    public function index(): View
     {
         return view('admin.feedback.index', [
-            'feedback' => Feedback::query()->select(['id', 'name','location','image','service','feedback','status'])->latest()->get()
+            'feedback' => Feedback::query()->select(['id', 'name', 'location', 'image', 'service', 'status'])->latest()->get()
         ]);
     }
 
-   
-
-    public function show(Feedback $feedback) : View
+    public function show(Feedback $feedback): View
     {
         return view('admin.feedback.show', compact('feedback'));
     }
 
- 
- 
-    public function destroy(Feedback $feedback) : RedirectResponse
+    public function destroy(Feedback $feedback): RedirectResponse
     {
-        if($feedback->image){
-$feedback->deleteImage('image', 'feedback-images');
-}
+        if ($feedback->image) {
+            $feedback->deleteImage('image', 'feedback-images');
+        }
 
         $feedback->delete();
 
         return redirect()->route('admin.feedback.index')->with('error', 'Feedback Deleted Successfully!');
     }
 
-    public function changeStatus(Request $request):void {
-$this->changeItemStatus('Feedback',$request->id,$request->status);
-}
-
+    public function changeStatus(Request $request): void
+    {
+        $this->changeItemStatus('Feedback', $request->id, $request->status);
+    }
 }

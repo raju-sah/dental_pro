@@ -17,7 +17,7 @@
         <div class="table-responsive no-wrap">
           <table class="table" id="datatable">
 
-           <x-table.header :headers="['title','slug','description','image','status', 'Actions']" />
+           <x-table.header :headers="['title','image','status', 'Actions']" />
 
              <tbody id="tablecontents">
                 @forelse ($programs as $programs)
@@ -25,13 +25,10 @@
                       <td>{{$loop->iteration}}</td>
 
                       <x-table.td>{{$programs->title}}</x-table.td>
-                        
-                        <x-table.td>{{$programs->slug}}</x-table.td>
-                        
-                        <x-table.td>{{$programs->description}}</x-table.td>
-                        
+                      
+                                                                        
                         <x-table.table_image name="{{$programs->image }}" url="{{$programs->image_path }}"/><x-table.switch :model="$programs" />
-
+                       
                       <td style="width:150px">
                             <div class="actions d-flex">
                                 <x-table.view_btn route-view="{{route('admin.programs.show', ':id')}}" id="{{$programs->id}}" model="Programs" name="programs"/>

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AppointmentController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SliderController;
@@ -41,13 +43,20 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::get('status-change-feedback', [FeedbackController::class, 'changeStatus'])->name('status-change-feedback');
     Route::resource('feedback', FeedbackController::class);
     Route::get('status-change-appointment', [AppointmentController::class, 'changeStatus'])->name('status-change-appointment');
-    Route::resource('appointments',AppointmentController::class);
+    Route::resource('appointments', AppointmentController::class);
 
     Route::get('status-change-news_letter', [NewsLetterController::class, 'changeStatus'])->name('status-change-news_letter');
     Route::resource('news-letters', NewsLetterController::class);
 
-    Route::get('status-change-programs',[ProgramsController::class,'changeStatus'])->name('status-change-programs');
-Route::resource('programs',ProgramsController::class);
+    Route::get('status-change-programs', [ProgramsController::class, 'changeStatus'])->name('status-change-programs');
+    Route::resource('programs', ProgramsController::class);
+
+    Route::resource('galleries', GalleryController::class);
+
+    Route::resource('contacts',ContactController::class);
+   
+    Route::delete('/image/delete/{id}', [GalleryController::class, 'deleteImage'])->name('admin.image.delete');
+
 });
 
 

@@ -1,4 +1,4 @@
-<table class="table table-hover table-striped">
+<table class="table ">
     
     <tbody>
       <tr>
@@ -19,6 +19,12 @@
       <tr>
       <td class="text-uppercase text-14">Description</td>
       <td>{!! $service->description ?? 'N/A' !!}</td>
+
+       
+      </tr>
+      <tr>
+      <td class="text-uppercase text-14">Service Type</td>
+      <td>{!! $service->service_type ?? 'N/A' !!}</td>
 
        
       </tr>

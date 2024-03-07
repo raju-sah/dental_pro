@@ -17,7 +17,7 @@
         <div class="table-responsive no-wrap">
           <table class="table" id="datatable">
 
-           <x-table.header :headers="['name','location','image','service','feedback','status', 'Actions']" />
+           <x-table.header :headers="['name','location','image','service','status', 'Actions']" />
 
              <tbody id="tablecontents">
                 @forelse ($feedback as $feedback)
@@ -29,8 +29,6 @@
                         <x-table.td>{{$feedback->location}}</x-table.td>
                         
                         <x-table.table_image name="{{$feedback->image }}" url="{{$feedback->image_path }}"/><x-table.td>{{$feedback->service}}</x-table.td>
-                        
-                        <x-table.td>{{$feedback->feedback}}</x-table.td>
                         
                         <x-table.switch :model="$feedback" />
 

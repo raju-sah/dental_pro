@@ -18,6 +18,7 @@ class ServiceUpdateRequest extends FormRequest
             'slug' => "required|string|unique:services,slug,{$this->service->id},id|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
             'description'=>'required|string',
             'image' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
+            'service_type'=>'required|string',
             'status'=>'boolean',
             'title' => 'nullable',
             'price' => 'nullable',

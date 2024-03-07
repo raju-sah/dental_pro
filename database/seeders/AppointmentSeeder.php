@@ -22,6 +22,7 @@ class AppointmentSeeder extends Seeder
             'email' => 'raju@example.com',
             'age' => 25,
             'address' => '123 Main Street',
+           
             
 
         ]);

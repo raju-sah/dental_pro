@@ -8,13 +8,13 @@ class NewsLetterRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return auth()->check();
+        return true;
     }
 
     public function rules(): array
     {
         return [
-            'email'=>'required|string',
+            'email'=>'required|email',
             'status'=>'boolean',
             ];
     }

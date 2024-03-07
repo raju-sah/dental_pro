@@ -21,7 +21,12 @@
                 <x-form.textarea label="Description" id="description" name="description" value="{!! $service->description !!}" rows="5" cols="5" />
 
 
-                <x-form.enum-select label="Service Type" col="4" :req="true" :model="$service->service_type" :options="\App\Enums\ServiceType::cases()" name="service_type"></x-form.enum-select>
+                <label class="form-label mt-3" for="service_type">Service Type</label>
+<select name="service_type" id="service_type" class="form-select mb-3">
+    <option value="Dental Service" {{ $service->service_type === 'Dental Service' ? 'selected' : '' }}>Dental Service</option>
+    <option value="Reason For Choosing Us" {{ $service->service_type === 'Reason For Choosing Us' ? 'selected' : '' }}>Reason For Choosing Us</option>
+</select>
+
                 <x-form.checkbox label="Status" id="status" name="status" value="1" class="form-check-input" isEditMode="yes" :isChecked="$service->status ? 'checked' : ''" />
                 <div id="inputContainer">
                     <div class="input-container">

@@ -33,8 +33,10 @@
                 <x-form.select label="Office closed Days" col="6"  :options="\App\Enums\OfficeClosedDay::cases()" name="office_closed_week" value="{{$general_setting->office_closed_week}}"></x-form.select>
                 <x-form.input type="text" label="Mobile" col="6" id="mobile" name="mobile" value="{{$general_setting->mobile}}" />
                 </x-form.row>
-               
+                <x-form.row>
                 <x-form.input type="text" label="Office_time" colo="6" id="office_time" name="office_time" placeholder="10:00 AM - 6:00 PM" value="{{$general_setting->office_time}}" />
+                <x-form.input type="text" label="Map Url" colo="6" id="map_url" name="map_url" value="{{$general_setting->map_url}}" />
+                </x-form.row>
                 <x-form.textarea label="Description"  id="description" name="description" value="{{$general_setting->description}}" rows="5" cols="5" />
                 
                 <x-form.checkbox label="Status" id="status" name="status" value="1" class="form-check-input" isEditMode="yes" :isChecked="$general_setting->status ? 'checked' : ''" />

@@ -45,11 +45,14 @@
     </div>
 </div>
 
+
+
 @endsection
 @push('custom_js')
 {!! JsValidator::formRequest('App\Http\Requests\Admin\ProgramsUpdateRequest') !!}
 @include('_helpers.image_preview',['name' => 'image'])
 @include('_helpers.multi_image', ['name' => 'image'])
+@include('_helpers.multi_img_delete', ['folder' => 'gallery-images'])
 @include('_helpers.ck_editor', ['textarea_id' => 'description'])
 @include('_helpers.slugify', ['title' => 'title'])
 @endpush
