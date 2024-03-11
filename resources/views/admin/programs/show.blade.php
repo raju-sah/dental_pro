@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <td class="text-uppercase text-14">Page Type</td>
-      <td>{{$program->page_type == 0 ? 'HomePage' : 'SinglePage'}}</td>
+      <td>{{$program->page_type }}</td>
 
     </tr>
 

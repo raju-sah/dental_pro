@@ -37,6 +37,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('teams', [TeamApiController::class, 'index']);
 Route::get('testimonials', [TestimonialApiController::class, 'index']);
+Route::get('services/{service:slug}', [ServiceApiController::class, 'show']);
 Route::get('services', [ServiceApiController::class, 'index']);
 Route::get('reason-to-choose', [ReasonForServiceApiController::class, 'index']);
 Route::get('general-settings', [GeneralSettingApiController::class, 'index']);

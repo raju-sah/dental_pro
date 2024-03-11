@@ -18,7 +18,7 @@ class SliderResource extends JsonResource
             'id' => $this->id,
             'slug' => $this->slug,
             'name' => $this->name,
-            'description' => $this->description,
+            'description' => strip_tags($this->description),
             'url' => $this->url,
             'status' => $this->status == 1 ? 'Active' : 'Inactive',
             'created_at' => $this->created_at->diffForHumans(),

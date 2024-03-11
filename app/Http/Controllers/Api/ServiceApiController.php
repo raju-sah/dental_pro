@@ -18,4 +18,10 @@ class ServiceApiController extends Controller
             Service::where('status', 1)->where('service_type', 'Dental Service')->with('servicePrices')->get()
         );
             }
+
+            public function show(Service $service)
+            {
+                // dd('asdasdsa');
+                return response()->json($service);
+            }
 }

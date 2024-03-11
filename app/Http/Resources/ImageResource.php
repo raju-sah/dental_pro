@@ -21,7 +21,7 @@ class ImageResource extends JsonResource
             $imagePath = 'slider-gallery-images';
         } elseif ($dynamicPath == 'App\Models\Gallery') {
             $imagePath = 'gallery-images';
-        } elseif ($dynamicPath == 'App\Models\Program') {
+        } elseif ($dynamicPath == 'App\Models\Programs') {
             $imagePath = 'programs-images';
         }
     

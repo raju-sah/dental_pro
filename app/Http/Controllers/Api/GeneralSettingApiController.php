@@ -10,9 +10,9 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class GeneralSettingApiController extends Controller
 {
-    public function index():AnonymousResourceCollection
+    public function index()
     {
-        return GeneralSettingResource::collection(GeneralSetting::where('status', 1)->get());
+        return new GeneralSettingResource(GeneralSetting::where('status', 1)->first());
     }
 
 }

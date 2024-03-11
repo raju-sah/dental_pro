@@ -22,6 +22,7 @@ class CreateProgramsTable extends Migration
             $table->string('image')->nullable();
             $table->string('page_type')->default('Home Page');
             $table->boolean('status')->default(0);
+            $table->string('display_order')->nullable();
             $table->timestamps();
         });
     }

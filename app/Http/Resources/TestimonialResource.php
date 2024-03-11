@@ -19,7 +19,7 @@ class TestimonialResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'image' => asset('uploaded-images/testimonial-images/' . $this->image),
-            'description' => $this->description,
+            'description' => strip_tags($this->description),
             'status' => $this->status == 1 ? 'Active' : 'Inactive',
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at

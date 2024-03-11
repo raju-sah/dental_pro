@@ -18,6 +18,7 @@ class ProgramsUpdateRequest extends FormRequest
             'slug' => "required|string|unique:programs,slug,{$this->program->id},id|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
             'description'=>'nullable|string',
             'page_type'=>'nullable|string',
+            'display_order' => "required_if:page_type,Home_Page|unique:programs,display_order,{$this->program->id},id",
             'image' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'status'=>'boolean',
             ];

@@ -20,11 +20,33 @@
                 <x-form.input type="text" col="6" :req="true" label="Slug" id="slug" name="slug" value="{{ old('slug') }}" />
                 </x-form.row>
               
-        <label class="form-label mt-3" for="service_type">Page Type</label>
-<select name="service_type" id="service_type" class="form-select mb-3">
-    <option value="Home Page">Home Page</option>
-    <option value="Single Page">Single Page</option>
+             
+
+                <select name="page_type" col="6" id="page_type" class="form-select mt-3 mb-3" onchange="toggleDisplayOrder()">
+    <option value="" disabled selected>Select Page Type</option>
+    <option value="Home_Page">Home Page</option>
+    <option value="Single_Page">Single Page</option>
 </select>
+
+<x-form.input type="text" style="display:none;" :req="true" label="Display Order" id="display_order" name="display_order" value="{{ old('display_order') }}" />
+
+<script>
+    function toggleDisplayOrder() {
+        var pageType = document.getElementById('page_type'); // Corrected the ID here
+        var displayOrderInput = document.getElementById('display_order');
+
+        if (pageType.value === 'Home_Page') {
+            displayOrderInput.style.display = 'block';
+        } else {
+            displayOrderInput.style.display = 'none';
+        }
+    }
+
+    // Call the function on page load to set the initial state
+    toggleDisplayOrder();
+</script>
+
+
                 <x-form.textarea label="Description" id="description" name="description" value="{{ old('description') }}" rows="5" cols="5" />
                
                 <x-form.checkbox label="Status" id="status" name="status" value="1" class="form-check-input" isEditMode="yes" :isChecked="true" />

@@ -10,8 +10,9 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class SocialSettingApiController extends Controller
 {
-    public function index():AnonymousResourceCollection
+    public function index()
     {
-        return SocialSettingResource::collection(SocialSetting::all());
+        //return SocialSettingResource::collection(SocialSetting::all());
+        return new SocialSettingResource(SocialSetting::first());
     }
 }

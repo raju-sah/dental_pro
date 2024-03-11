@@ -19,7 +19,7 @@ class ServiceResource extends JsonResource
          'name' => $this->name,
          'slug' => $this->slug,
          'image' => asset('uploaded-images/service-images/' . $this->image),
-         'description' => $this->description,
+         'description' => strip_tags($this->description),
          'service_type' => $this->service_type,
          'status' => $this->status == 1 ? 'Active' : 'Inactive',
          'created_at' => $this->created_at->diffForHumans(),

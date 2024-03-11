@@ -17,7 +17,8 @@ class ProgramsRequest extends FormRequest
             'title'=>'required|string',
             'slug' => "required|string|unique:programs,slug|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
             'description'=>'nullable|string',
-            'page_type'=>'nullable|string',
+            'page_type'=>'required|string',
+            'display_order' => "required_if:page_type,Home_Page|unique:programs,display_order",
             'image' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'status'=>'boolean',
             ];

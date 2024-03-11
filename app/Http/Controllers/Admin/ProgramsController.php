@@ -28,8 +28,18 @@ class ProgramsController extends Controller
 
     public function store(ProgramsRequest $request) : RedirectResponse
     {
-        $program = Programs::create($request->safe()->except('image'));
+       
+        $data = $request->safe()->except('image','display_order');
       
+        
+
+        if($request->page_type != "Home_Page"){
+            $data['display_order'] = $request->slug;                    
+        }else{
+            $data['display_order'] = $request->display_order;
+        }
+
+        $program = Programs::create($data);
         if($request->has('images')){
             foreach ($request->images as $image) {
                 $program->storeMultiImage($image, 'programs-images');
@@ -50,7 +60,17 @@ class ProgramsController extends Controller
 
     public function update(ProgramsUpdateRequest $request, Programs $program) : RedirectResponse
     {
-        $program->update($request->safe()->except('image'));
+        $data = $request->safe()->except('image','display_order');
+      
+    
+        if($request->page_type != "Home_Page"){
+            $data['display_order'] = $request->slug;                    
+        }else{
+            $data['display_order'] = $request->display_order;
+        }
+
+
+        $program->update( $data);
 
        
         if($request->has('images')){

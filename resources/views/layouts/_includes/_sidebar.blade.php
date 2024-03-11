@@ -41,6 +41,9 @@ $seo_setting = SeoSetting::first();
         <x-sidebar-item route="{{route('admin.sliders.index')}}" name="Slider" uri="admin/sliders">
             <i class="menu-icon tf-icons bx bxs-image"></i>
         </x-sidebar-item>
+        <x-sidebar-item route="{{route('admin.galleries.index')}}" name="Gallery" uri="admin/galleries">
+            <i class="menu-icon tf-icons bx bxs-image-add"></i>
+        </x-sidebar-item>
         <x-sidebar-item route="{{route('admin.feedback.index')}}" name="Feedbacks" uri="admin/feedbacks">
             <i class="menu-icon tf-icons bx bxs-like"></i>
         </x-sidebar-item>
