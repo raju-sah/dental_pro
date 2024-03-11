@@ -18,11 +18,10 @@ class CreateProgramsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
-            $table->string('page_type')->default(PageType::HomePage->value);
+            $table->string('page_type')->default('Home Page');
             $table->boolean('status')->default(0);
-            
             $table->timestamps();
         });
     }

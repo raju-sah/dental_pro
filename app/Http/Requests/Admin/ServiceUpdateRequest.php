@@ -20,8 +20,8 @@ class ServiceUpdateRequest extends FormRequest
             'image' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'service_type'=>'required|string',
             'status'=>'boolean',
-            'title' => 'nullable',
-            'price' => 'nullable',
+            'title.*' => 'nullable|string',
+            'price.*' => 'nullable|numeric',
             ];
     }
 }

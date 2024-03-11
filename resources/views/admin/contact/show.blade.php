@@ -3,28 +3,28 @@
     <tbody>
       
       <tr>
-      <td class="text-uppercase text-14"> Title</td>
+      <td class="text-uppercase text-14"> Name</td>
         <td>{{$contact->name}}</td>
         
       </tr>
       <tr>
-      <td class="text-uppercase text-14">slug</td>
-        <td>{{$contact->slug}}</td>
+      <td class="text-uppercase text-14">email</td>
+        <td>{{$contact->email}}</td>
        
       </tr>
       <tr>
-      <td class="text-uppercase text-14">description</td>
-        <td>{{$contact->description}}</td>
+      <td class="text-uppercase text-14">subject</td>
+        <td>{{$contact->subject}}</td>
        
       </tr>
       <tr>
-      <td class="text-uppercase text-14">url</td>
-        <td>{{$contact->url}}</td>
+      <td class="text-uppercase text-14">message</td>
+        <td>{{$contact->message}}</td>
        
       </tr>
      
      
-     
+      
       <tr>
       <td class="text-uppercase text-14">status</td>
       @if ($contact->status == 1)

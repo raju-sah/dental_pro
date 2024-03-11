@@ -29,8 +29,8 @@ class GeneralSettingResource extends JsonResource
             'office_closed_week' => $this->office_closed_week,
            'office_time' => $this->office_time,
             'status' => $this->status==1? 'Active':'Inactive',
-            'created_at' => $this->created_at->diffForHumans(),
-            'updated_at' => $this->updated_at->diffForHumans(),
+            // 'created_at' => $this->created_at->diffForHumans(),
+            // 'updated_at' => $this->updated_at->diffForHumans(),
         ];
     }
 }

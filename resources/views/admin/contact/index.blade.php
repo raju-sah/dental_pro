@@ -11,13 +11,13 @@
         <div class="card-body">
 
           <div class="d-flex justify-content-end">
-            <a href="{{route('admin.contacts.create')}}" class="btn btn-sm btn-dark mb-2"><i class='bx bx-xs bx-plus'> </i>Create</a>
+            <!-- <a href="{{route('admin.contacts.create')}}" class="btn btn-sm btn-dark mb-2"><i class='bx bx-xs bx-plus'> </i>Create</a> -->
           </div>
 
         <div class="table-responsive no-wrap">
           <table class="table" id="datatable">
 
-           <x-table.header :headers="['name','email','subject', 'Actions']" />
+           <x-table.header :headers="['name','email','subject','status', 'Actions']" />
 
              <tbody id="tablecontents">
                 @forelse ($contacts as $contact)
@@ -30,7 +30,7 @@
                         
                         <x-table.td>{{$contact->subject}}</x-table.td>
                      
-                        
+                        <x-table.switch :model="$contact" />
 
                       <td style="width:150px">
                             <div class="actions d-flex">

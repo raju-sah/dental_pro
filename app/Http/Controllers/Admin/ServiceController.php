@@ -29,34 +29,32 @@ class ServiceController extends Controller
 
     public function store(ServiceRequest $request): RedirectResponse
     {
-
-        $service = Service::create($request->safe()->except('title','price','image'));
+    
+        $service = Service::create($request->safe()->except('title', 'price', 'image'));
         if ($request->hasFile('image')) {
             $service->storeImage('image', 'service-images', $request->file('image'));
         }
-
+    
         $data = $request->validated();
-        $variations = [];  
-
-        foreach ($data['title'] as $index => $title) {
-           
-                        // If is_default is 1, set status to 1
-                            $variations[] = [
-                                'title' => ucfirst($title),
-                                'price' => ucfirst($data['price'][$index]),
-                                'service_id' => $service->id,
-               
-               
-            ];
+    
+        if (isset($data['title']) && is_array($data['title'])) {
+            $variations = [];
+    
+            foreach ($data['title'] as $index => $title) {
+                // If is_default is 1, set status to 1
+                $variations[] = [
+                    'title' => ucfirst($title),
+                    'price' => ucfirst($data['price'][$index]),
+                    'service_id' => $service->id,
+                ];
+            }
+    
+            ServicePrice::insert($variations);
         }
-
-        ServicePrice::insert($variations);
-        
-
-       
+    
         return redirect()->route('admin.services.index')->with('success', 'Service Created Successfully!');
     }
-
+    
     public function show(Service $service): View
     {
         return view('admin.service.show', compact('service'));
@@ -79,6 +77,7 @@ class ServiceController extends Controller
         $data = $request->validated();
         $variations = [];  
 
+        if (isset($data['title']) && is_array($data['title'])) {
         foreach ($data['title'] as $index => $title) {
            
                         // If is_default is 1, set status to 1
@@ -92,7 +91,7 @@ class ServiceController extends Controller
         }
  $service->servicePrices()->delete();
         ServicePrice::insert($variations);
-
+    }
         return redirect()->route('admin.services.index')->with('success', 'Service Updated Successfully!');
     }
 

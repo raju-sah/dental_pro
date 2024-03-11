@@ -15,9 +15,9 @@ class ProgramsRequest extends FormRequest
     {
         return [
             'title'=>'required|string',
-           'slug' => "required|string|unique:programs,slug|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
+            'slug' => "required|string|unique:programs,slug|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/",
             'description'=>'nullable|string',
-            'page_type'=>'required|string',
+            'page_type'=>'nullable|string',
             'image' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'status'=>'boolean',
             ];

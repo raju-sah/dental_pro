@@ -11,7 +11,7 @@
         <div class="card-body">
 
           <div class="d-flex justify-content-end">
-            <a href="{{route('admin.feedback.create')}}" class="btn btn-sm btn-dark mb-2"><i class='bx bx-xs bx-plus'> </i>Create</a>
+            <!-- <a href="{{route('admin.feedback.create')}}" class="btn btn-sm btn-dark mb-2"><i class='bx bx-xs bx-plus'> </i>Create</a> -->
           </div>
 
         <div class="table-responsive no-wrap">

@@ -28,17 +28,16 @@
 </select>
 
                 <x-form.checkbox label="Status" id="status" name="status" value="1" class="form-check-input" isEditMode="yes" :isChecked="$service->status ? 'checked' : ''" />
-                <div id="inputContainer">
-                    <div class="input-container">
-                        @foreach ($service->ServicePrices as $key => $value)
-                        <input type="text" name="title[]" class="form-control" value="{{ $value->title }}" placeholder="Enter name">
-                        <input type="text" name="price[]" class="form-control ms-2 me-2" value="{{ $value->price }}" placeholder="Enter price">
-                        <span class="  rajuspan btn btn-danger mt-2" onclick="removeInputFields(this)"><i class="bx bx-minus">Delete</i></span>
-                        @endforeach
-                        <span class="  rajuspan btn btn-success mt-2" onclick="addInputFields()"><i class="bx bx-plus">Add</i></span>
-
-                    </div>
-                </div>
+                <div id="inputContainer" class="input-container">
+    @foreach ($service->ServicePrices as $key => $value)
+        <div class="input-fields">
+            <input type="text" name="title[]" class="form-control" value="{{ $value->title }}" placeholder="Enter name">
+            <input type="text" name="price[]" class="form-control ms-2 me-2" value="{{ $value->price }}" placeholder="Enter price">
+            <span class="rajuspan btn btn-danger mt-2" onclick="removeInputFields(this)"><i class="bx bx-minus">Delete</i></span>
+        </div>
+    @endforeach
+    <span class="rajuspan btn btn-success mt-2" onclick="addInputFields()"><i class="bx bx-plus">Add</i></span>
+</div>
         </div>
         <x-form.button class="btn btn-sm btn-dark" type="submit"><i class='bx bx-save bx-xs'></i>
             Save</x-form.button>
@@ -50,6 +49,10 @@
     .input-container {
         display: flex;
         flex-wrap: wrap;
+    }
+    .input-fields {
+        display: flex;
+        flex-wrap: nowrap;
     }
     .input-set {
         margin-right: 10px;

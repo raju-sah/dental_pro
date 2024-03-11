@@ -17,7 +17,7 @@ class SliderController extends Controller
     public function index() : View
     {
         return view('admin.slider.index', [
-            'sliders' => Slider::query()->select(['id', 'name','slug','description','url','image','status'])->latest()->get()
+            'sliders' => Slider::query()->select(['id', 'name','url','image','status'])->latest()->get()
         ]);
     }
 

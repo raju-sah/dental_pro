@@ -53,6 +53,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
 
     Route::resource('galleries', GalleryController::class);
 
+    Route::get('status-change-contact', [ContactController::class, 'changeStatus'])->name('status-change-contact');
     Route::resource('contacts',ContactController::class);
    
     Route::delete('/image/delete/{id}', [GalleryController::class, 'deleteImage'])->name('admin.image.delete');

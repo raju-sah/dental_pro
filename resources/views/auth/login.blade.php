@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="app-brand justify-content-center mb-4">
                 <a href="{{url('/')}}" class="app-brand-link">
-                    <span class="app-brand-text demo text-body fw-bolder text-uppercase">Crud Starter</span>
+                    <span class="app-brand-text demo text-body fw-bolder text-uppercase">Dental Pro</span>
                 </a>
             </div>
             <h4 class="mb-3">Login Page</h4>
@@ -54,12 +54,7 @@
                 </div>
             </form>
 
-            <div>
-                Do not have an account ?
-                <a href="{{ route('register') }} " class="mt-1 d-inline-block">
-                    <small>Sign Up</small>
-                </a>
-            </div>
+           
         </div>
     </div>
 @endsection

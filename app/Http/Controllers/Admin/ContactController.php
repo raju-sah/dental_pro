@@ -59,5 +59,10 @@ class ContactController extends Controller
         return redirect()->route('admin.contacts.index')->with('error', 'Contact Deleted Successfully!');
     }
 
+
+    public function changeStatus(Request $request): void
+    {
+        $this->changeItemStatus('Contact', $request->id, $request->status);
+    }
     
 }

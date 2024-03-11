@@ -35,7 +35,11 @@
                 <x-form.input type="text" col="6" :req="true" label="Title" id="title" name="title" value="{{$program->title}}" />
                 <x-form.input type="text" col="6" :req="true" label="Slug" id="slug" name="slug" value="{{$program->slug}}" />
                 </x-form.row>
-                <x-form.input type="text" label="Description" id="description" name="description" value="{{$program->description}}" />
+                <label class="form-label mt-3" for="page_type">Page Type</label>
+<select name="page_type" id="page_type" class="form-select mb-3">
+    <option value="Home Page" {{ $program->page_type === 'Home page' ? 'selected' : '' }}>Home Page</option>
+    <option value="Single Page" {{ $program->page_type === 'Single Page' ? 'selected' : '' }}>Single Page</option>
+</select>                <x-form.textarea label="Description" id="description" name="description" value="{{$program->description}}" rows="5" cols="5" />
                
                 <x-form.checkbox label="Status" id="status" name="status" value="1" class="form-check-input" isEditMode="yes" :isChecked="$program->status ? 'checked' : ''" />
 
@@ -43,6 +47,7 @@
             </x-form.wrapper>
         </div>
     </div>
+
 </div>
 
 
