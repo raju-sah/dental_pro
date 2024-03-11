@@ -19,18 +19,44 @@ use OpenApi\Annotations as OA;
  */
 class GalleryApiController extends Controller
 {
-    /**
-     * @OA\Get(
-     *     path="/api/galleries",
-     *     @OA\Response(
-     *         response="200",
-     *         description="The data"
-     *     )
-     * )
-     */
-    public function index()
-    {
-        return new GalleryResource(Gallery::with('images')->first());
-    }
+  /**
+ * @OA\Get(
+ *     path="/api/galleries",
+ *     summary="Get all galleries with images",
+ *     tags={"Galleries"},
+ *     @OA\Response(
+ *         response=200,
+ *         description="Successful operation",
+ *         @OA\JsonContent(
+ *             @OA\Property(
+ *                 property="data",
+ *                 type="object",
+ *                 ref="/GalleryResource"
+ *             ),
+ *             @OA\Property(
+ *                 property="message",
+ *                 type="string",
+ *                 example="Gallery retrieved successfully"
+ *             ),
+ *         ),
+ *     ),
+ *     @OA\Response(
+ *         response=404,
+ *         description="Resource not found",
+ *         @OA\JsonContent(
+ *             @OA\Property(
+ *                 property="message",
+ *                 type="string",
+ *                 example="Gallery not found"
+ *             ),
+ *         ),
+ *     ),
+ * )
+ */
+public function index()
+{
+    return new GalleryResource(Gallery::with('images')->first());
+}
+
 
 }

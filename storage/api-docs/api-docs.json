@@ -10,10 +10,230 @@
     "paths": {
         "/api/galleries": {
             "get": {
+                "tags": [
+                    "Galleries"
+                ],
+                "summary": "Get all galleries with images",
                 "operationId": "1973a9bc4a0471a2a253ec356cebe3a3",
                 "responses": {
                     "200": {
-                        "description": "The data"
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "/GalleryResource"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Gallery retrieved successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Gallery not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/general-settings": {
+            "get": {
+                "tags": [
+                    "General Settings"
+                ],
+                "summary": "Get all general-settings with images",
+                "operationId": "d3dd11acc98b5773923a2d4e799fce81",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "/GeneralSettingResource"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "General Settings retrieved successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "General Settings not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/home-page-programs": {
+            "get": {
+                "tags": [
+                    "Home Page Program Api"
+                ],
+                "summary": "Get all home-page-programs with images",
+                "operationId": "21ef880baa4a2e5c53fcf19284bdc09a",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "/HomePageProgramResource"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Home Page Program Api retrieved successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "General Settings not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/reason-to-choose": {
+            "get": {
+                "tags": [
+                    "Reason For Choosing  Services "
+                ],
+                "summary": "Get all services with images",
+                "operationId": "8af168339c77c91c8cc1abefbf5a6d16",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "/ReasonForServiceResource"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "ReasonForService retrieved successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "ReasonForService not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/social-settings": {
+            "get": {
+                "tags": [
+                    "Social Settings"
+                ],
+                "summary": "Get all social-settings with images",
+                "operationId": "4a7293e5a73d0b845d43b529db1d20dc",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "/SocialSettingResource"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "social Settings retrieved successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "General Settings not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
